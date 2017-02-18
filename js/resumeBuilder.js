@@ -1,23 +1,22 @@
 /*
 This is empty on purpose! Your code to build the resume will go here.
  */
-// var fName= HTMLheaderName.replace("%data%","Gustavo Antonio Lastra Colorado" );
- //var fRole= HTMLheaderRole.replace("%data%","Frontend Developer" );
+
 
 var bio = {
-  "name" : HTMLheaderName.replace("%data%","Gustavo Antonio Lastra Colorado" ),
-  "role" : HTMLheaderRole.replace("%data%","Frontend Developer" ),
-  //"contact" : HTMLcontactGeneric.replace("%data%","Frontend Developer" ),
-  "mobile" : HTMLmobile.replace("%data%","+49 1742 813 345" ),
-  "email" : HTMLemail.replace("%data%","Gustavo.LastraC@gmail.com" ),
-  "gitlab" : HTMLgitlab.replace("%data%","@GustavoLastra" ),
-  "github" : HTMLgithub.replace("%data%","GustavoLastra" ),
+  "name" : HTMLheaderName.replace("%data%","Gustavo Lastra"),
+  "role" : HTMLheaderRole.replace("%data%","Frontend Developer"),
+  "contacts" : {
+    "mobile" : HTMLmobile.replace("%data%","+49 1742 813 345"),
+    "email" : HTMLemail.replace("%data%","Gustavo.LastraC@gmail.com"),
+    "gitlab" : HTMLgitlab.replace("%data%","@GustavoLastra"),
+    "location" : HTMLlocation.replace("%data%","Ilmenau"),
+    "github" : HTMLgithub.replace("%data%","GustavoLastra")
+  },
   //"blog" : HTMLblog.replace("%data%","Frontend Developer" ),
-  "location" : HTMLlocation.replace("%data%","Ilmenau" ),
-  "bioPic" : HTMLbioPic.replace("%data%","../images/gus.jpg" ),
-  "welcomeMsg" : HTMLwelcomeMsg.replace("%data%","Welcome to my resume" ),
-  "skillsStart" : HTMLskillsStart,
-  "skills" : HTMLskills.replace("%data%","skills" ),
+  "bioPic" : HTMLbioPic.replace("%data%","./images/gus.jpg") ,
+  "welcomeMsg" : HTMLwelcomeMsg.replace("%data%","Welcome to my resume") ,
+  "skills" : [ "rocking", "saving the universe"]
 };
 
 var work = {
@@ -45,7 +44,6 @@ var work = {
       //"workDescription" : HTMLworkDescription.replace("%data%","Frontend Developer" )
     }
   ]
-
 };
 
 var project = {
@@ -112,12 +110,9 @@ var education = {
   ]
 };
 
-
-//$("#header").prepend(fName);
-//$("#header").append(fRole);
 $("#workExperience").append(work.workStart);
 $("#education").append(education.schoolStart);
-$("#projects").append(project.projects);
+$("#projects").append(project.projectStart);
 //$("#topContacts").append(bio.each());
 var data = {
   "programs": [
@@ -128,28 +123,24 @@ var data = {
     ]
   };
 
-/*$.each(data.programs, function (i) {
-    $.each(data.programs[i], function (key, val) {
-        alert(key + val);
-    });
-});*/
 $.each(work.works, function (job) {
     $.each(work.works[job], function (key, val) {
         //alert(key + val);
-        $("#workExperience").append(val);
+        $(".work-entry").append(val);
     });
 });
 
 $.each(project.projects, function (index) {
     $.each(project.projects[index], function (key, val) {
         //alert(key + val);
-        $("#projects").append(val);
+        $(".project-entry").append(val);
+        //$(".project-entry").prepend(val);
     });
 });
 $.each(education.schools, function (Institution) {
     $.each(education.schools[Institution], function (key, val) {
         //alert(key + val);
-        $("#education").append(val);
+        $(".education-entry").append(val);
     });
 });
 
@@ -165,14 +156,60 @@ $.each(education.schools, function (Institution) {
 }*/
 
 
-  $("#topContacts").append(bio.name);
-  $("#topContacts").append(bio.role);
-  $("#topContacts").append(bio.mobile);
-  $("#topContacts").append(bio.gitlab);
-  $("#topContacts").append(bio.github);
-  $("#topContacts").append(bio.location);
-  $("#topContacts").append(bio.bioPic);
-  $("#topContacts").append(bio.welcomeMsg);
+
+
+  /*$.each(bio.contacts, function (index) {
+      $.each(bio.contacts[index], function (key, val) {
+          //alert(key + val);
+          var fmobile =HTMLmobile.replace("%data%",bio.contacts.mobile);
+          var femail =HTMLemail.replace("%data%",bio.contacts.email);
+          var fgitlab =HTMLgitlab.replace("%data%",bio.contacts.gitlab);
+          var fgithub =HTMLgithub.replace("%data%",bio.contacts.github);
+          var flocation =HTMLlocation .replace("%data%",bio.contacts.location);
+          //var fblog =HTMLblog
+          $(".skills").append(val);
+      });
+  });*/
+  //var fName= HTMLheaderName.replace("%data%","Gustavo Antonio Lastra Colorado" );
+  //var fRole= HTMLheaderRole.replace("%data%","Frontend Developer" );
+  $("#header").prepend(bio.role);
+  $("#header").prepend(bio.name);
+  for(index in bio.contacts){
+    $("#topContacts").append(bio.contacts[index]);
+  }
+  $("#header").append(bio.bioPic);
+  $("#header").append(bio.welcomeMsg);
+  if (bio.skills>0){
+    $("#header").append(HTMLskillsStart);
+    $.each(bio.skills, function (index) {
+        $.each(bio.skills[index], function (key, val) {
+            //alert(key + val);
+            $(".skills").append(val);
+        });
+    });
+  }
+
+
+
+  /*for ( index in bio.contacts) {
+    //$("#topContacts").append(flocation);
+  //console.log('obj.' + prop, '=', obj[prop]);
+    var fmobile =HTMLmobile.replace("%data%",bio.contacts.mobile);
+    $("#topContacts:last").append(fmobile);
+    var femail =HTMLemail.replace("%data%",bio.contacts.email);
+    $("#topContacts:last").append(femail);
+    var fgitlab =HTMLgitlab.replace("%data%",bio.contacts.gitlab);
+    $("#topContacts:last").append(fgitlab);
+    var fgithub =HTMLgithub.replace("%data%",bio.contacts.github);
+    $("#topContacts:last").append(fgithub);
+    var flocation =HTMLlocation .replace("%data%",bio.contacts.location);
+    $("#topContacts:last").append(flocation);
+    //var fblog =HTMLblog
+
+  }*/
+
+
+
 
 
  //internationalizeButton
