@@ -16,7 +16,14 @@ var bio = {
   //"blog" : HTMLblog.replace("%data%","Frontend Developer" ),
   "bioPic" : HTMLbioPic.replace("%data%","./images/gus.jpg") ,
   "welcomeMsg" : HTMLwelcomeMsg.replace("%data%","Welcome to my resume") ,
-  "skills" : [ "rocking", "saving the universe"]
+  "skills" : [
+    {
+      "rocking": HTMLskills.replace("%data%","rocking"),
+    },
+    {
+      "saving the universe": HTMLskills.replace("%data%","saving the universe")
+    }
+  ]
 };
 
 var work = {
@@ -99,14 +106,14 @@ var education = {
       "schoolDates" : HTMLschoolDates.replace("%data%","August 2010 - July 2015" ),
       "schoolLocation" : HTMLschoolLocation.replace("%data%","Mexico" ),
       "schoolMajor" : HTMLschoolMajor.replace("%data%","Electronic and Computer Engineering" )
-    }/*,
+    },
     {
       "onlineClasses" : HTMLonlineClasses.replace("%data%","Frontend Developer" ),
       "onlineTitle" : HTMLonlineTitle.replace("%data%","Frontend Developer" ),
       "onlineSchool" : HTMLonlineSchool.replace("%data%","Frontend Developer" ),
       "onlineDates" : HTMLonlineDates.replace("%data%","Frontend Developer" ),
       "onlineURL" : HTMLonlineURL.replace("%data%","Frontend Developer" )
-    }*/
+    }
   ]
 };
 
@@ -179,15 +186,30 @@ $.each(education.schools, function (Institution) {
   }
   $("#header").append(bio.bioPic);
   $("#header").append(bio.welcomeMsg);
-  if (bio.skills>0){
+
+$("#header").append(HTMLskillsStart);
+  $.each(bio.skills, function (index) {
+      $.each(bio.skills[index], function (key, val) {
+          //alert(key + val);
+          $("#skills").append(val);
+          //$(".project-entry").prepend(val);
+      });
+  });
+  //for(index in bio.skills){
+  //  $("#skills").append(bio.skills[index]);
+  //}
+
+  /*if (bio.skills>0){
     $("#header").append(HTMLskillsStart);
     $.each(bio.skills, function (index) {
         $.each(bio.skills[index], function (key, val) {
             //alert(key + val);
-            $(".skills").append(val);
+            $("#skills").append(val);
         });
     });
-  }
+  }*/
+
+
 
 
 
