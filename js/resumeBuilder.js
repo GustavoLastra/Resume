@@ -191,7 +191,7 @@ $("#header").append(HTMLskillsStart);
   $.each(bio.skills, function (index) {
       $.each(bio.skills[index], function (key, val) {
           //alert(key + val);
-          $("#skills").append(val);
+          $("#skills-h3").append(val);
           //$(".project-entry").prepend(val);
       });
   });
