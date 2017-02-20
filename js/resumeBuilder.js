@@ -30,22 +30,22 @@ var work = {
   "workStart" : HTMLworkStart,
   "works" : [
     {
-      "workEmployer" : HTMLworkEmployer.replace("%data%","BE EXCELLENT" ),
-      "workTitle" : HTMLworkTitle.replace("%data%","Junior Front-End Developer E-Commerce" ),
+      //"workEmployer" : ,
+      "workEmployerandTitle" : HTMLworkEmployer.replace("%data%","BE EXCELLENT" )+ HTMLworkTitle.replace("%data%","Junior Front-End Developer E-Commerce" ),
       "workDates" : HTMLworkDates.replace("%data%","20 March - Actual" ),
       "workLocation" : HTMLworkLocation.replace("%data%","Jena, Germany" ),
       //"workDescription" : HTMLworkDescription.replace("%data%","Frontend Developer" )
     },
     {
-      "workEmployer" : HTMLworkEmployer.replace("%data%","Criser S.A de C.V." ),
-      "workTitle" : HTMLworkTitle.replace("%data%","Technical support of information technology" ),
+      //"workEmployer" : HTMLworkEmployer.replace("%data%","Criser S.A de C.V." ),
+      "workEmployerandTitle" : HTMLworkEmployer.replace("%data%","Criser S.A de C.V." ) + HTMLworkTitle.replace("%data%","Technical support of information technology" ),
       "workDates" : HTMLworkDates.replace("%data%","May 2014 - July 2014" ),
       "workLocation" : HTMLworkLocation.replace("%data%","Monterrey, Mexico" ),
       //"workDescription" : HTMLworkDescription.replace("%data%","Frontend Developer" )
     },
     {
-      "workEmployer" : HTMLworkEmployer.replace("%data%","Criser S.A de C.V." ),
-      "workTitle" : HTMLworkTitle.replace("%data%","Technical support of information technology" ),
+      //"workEmployer" : HTMLworkEmployer.replace("%data%","Criser S.A de C.V." ),
+      "workEmployerandTitle" : HTMLworkEmployer.replace("%data%","Criser S.A de C.V." ) + HTMLworkTitle.replace("%data%","Technical support of information technology" ),
       "workDates" : HTMLworkDates.replace("%data%","June 2013 - August 2013" ),
       "workLocation" : HTMLworkLocation.replace("%data%","Monterrey, Mexico" ),
       //"workDescription" : HTMLworkDescription.replace("%data%","Frontend Developer" )

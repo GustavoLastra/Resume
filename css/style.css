@@ -78,7 +78,7 @@ h5 {
   font-size: 14px;
   color: #999;
   line-height: 16px;
-  float: left;
+  //float: left;
 }
 
 .location-text {
@@ -130,7 +130,7 @@ a {
 
 .gray {
   background-color: #B2DFDB;
-  padding-bottom: 10px;
+  padding-bottom: 20px;
   clear: both;
 }
 
