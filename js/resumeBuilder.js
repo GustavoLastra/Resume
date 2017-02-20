@@ -59,26 +59,26 @@ var project = {
     {
       "projectTitle" : HTMLprojectTitle.replace("%data%","Portafolio" ),
       "projectDates" : HTMLprojectDates.replace("%data%","December 2016" ),
-      "projectDescription" : HTMLprojectDescription.replace("%data%","Webpage, which shows my portafolio of projects" )
-      //"projectImage" : HTMLprojectImage.replace("%data%","../images/gus.jpg" )
+      "projectDescription" : HTMLprojectDescription.replace("%data%","Webpage, which shows my portafolio of projects" ),
+      "projectImage" : HTMLprojectImage.replace("%data%","./images/portafolio.png" )
     },
     {
       "projectTitle" : HTMLprojectTitle.replace("%data%","Cars" ),
       "projectDates" : HTMLprojectDates.replace("%data%","February 2016" ),
-      "projectDescription" : HTMLprojectDescription.replace("%data%","Webpage with a game" )
-      //"projectImage" : HTMLprojectImage.replace("%data%","../images/gus.jpg" )
+      "projectDescription" : HTMLprojectDescription.replace("%data%","Webpage with a game" ),
+      "projectImage" : HTMLprojectImage.replace("%data%","./images/cars.jpg" )
     },
     {
       "projectTitle" : HTMLprojectTitle.replace("%data%","Resume" ),
       "projectDates" : HTMLprojectDates.replace("%data%","February - Actual" ),
-      "projectDescription" : HTMLprojectDescription.replace("%data%","Webpage, which shows my Curriculum Vitae" )
-      //"projectImage" : HTMLprojectImage.replace("%data%","../images/gus.jpg" )
+      "projectDescription" : HTMLprojectDescription.replace("%data%","Webpage, which shows my Curriculum Vitae" ),
+      "projectImage" : HTMLprojectImage.replace("%data%","./images/curriculum.png" )
     },
     {
       "projectTitle" : HTMLprojectTitle.replace("%data%","Watson" ),
       "projectDates" : HTMLprojectDates.replace("%data%","January 2016" ),
-      "projectDescription" : HTMLprojectDescription.replace("%data%","IBM Watson ALchemylanguage application" )
-      //"projectImage" : HTMLprojectImage.replace("%data%","../images/gus.jpg" )
+      "projectDescription" : HTMLprojectDescription.replace("%data%","IBM Watson ALchemylanguage application" ),
+      "projectImage" : HTMLprojectImage.replace("%data%","./images/watson.png" )
     }
   ]
 };
