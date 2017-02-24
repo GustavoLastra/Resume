@@ -4,11 +4,13 @@
 <head>
   <meta charset="utf-8">
   <title>Resume</title>
+  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" media="screen">
   <link href="css/style.css" rel="stylesheet">
   <link href="../images/gus.jpg" alt="gus">
   <link href="../images/curriculum.png" alt="curriculum">
   <link href="../images/cars.png" alt="curriculum">
   <link href="../images/portafolio.png" alt="curriculum">
+
 
 
 <!--<script src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>-->
@@ -21,14 +23,22 @@
       <ul id="topContacts" class="flex-box"></ul>
     </div>
     <div style="clear: both;"></div>
-    <div id="workExperience" class="gray">
+    <div class=" gray">
       <h2>Work Experience</h2>
     </div>
-    <div id="projects" >
-      <h2>Projects</h2>
-    </div>
-    <div id="education" class="gray">
+    <div id="workExperience" class="gray work-entry"></div>
+      <div>
+        <h2>Projects</h2>
+      </div>
+      <div class="row" id="projects">
+        <div id="entry" class="project-entry" >
+        </div>
+      </div>
+      </div>
+    <div class=" gray">
       <h2>Education</h2>
+    </div>
+    <div id="education" class="gray education-entry">
     </div>
     <div id="mapDiv">
       <h2>Where I've Lived and Worked</h2>
@@ -48,7 +58,7 @@
 
   <script>
 
-    if(document.getElementsByClassName('flex-item').length === 0) {
+    /*if(document.getElementsByClassName('flex-item').length === 0) {
       document.getElementById('topContacts').style.display = 'none';
     }
     if(document.getElementsByTagName('h1').length === 0) {
@@ -68,7 +78,8 @@
     }
     if(document.getElementById('map') === null) {
       document.getElementById('mapDiv').style.display = 'none';
-    }
+    }*/
+
   </script>
 </body>
 </html>

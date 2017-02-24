@@ -2,6 +2,9 @@
 This is empty on purpose! Your code to build the resume will go here.
  */
 
+var projectHtml = '';
+var workHtml = '';
+var educationHtml = '';
 
 var bio = {
   "name" : HTMLheaderName.replace("%data%","Gustavo Lastra"),
@@ -27,64 +30,64 @@ var bio = {
 };
 
 var work = {
-  "workStart" : HTMLworkStart,
+  //"workStart" : HTMLworkStart,
   "works" : [
     {
-      //"workEmployer" : ,
-      "workEmployerandTitle" : HTMLworkEmployer.replace("%data%","BE EXCELLENT" )+ HTMLworkTitle.replace("%data%","Junior Front-End Developer E-Commerce" ),
+      "workEmployer" : HTMLworkEmployer.replace("%data%","BE EXCELLENT" ),
+      "workEmployerandTitle" : HTMLworkTitle.replace("%data%","Junior Front-End Developer E-Commerce" ),
       "workDates" : HTMLworkDates.replace("%data%","20 March - Actual" ),
       "workLocation" : HTMLworkLocation.replace("%data%","Jena, Germany" ),
-      //"workDescription" : HTMLworkDescription.replace("%data%","Frontend Developer" )
+      "workDescription" : HTMLworkDescription.replace("%data%","Frontend Developer" )
     },
     {
-      //"workEmployer" : HTMLworkEmployer.replace("%data%","Criser S.A de C.V." ),
-      "workEmployerandTitle" : HTMLworkEmployer.replace("%data%","Criser S.A de C.V." ) + HTMLworkTitle.replace("%data%","Technical support of information technology" ),
+      "workEmployer" : HTMLworkEmployer.replace("%data%","Criser S.A de C.V." ),
+      "workEmployerandTitle" : HTMLworkTitle.replace("%data%","Technical support of information technology" ),
       "workDates" : HTMLworkDates.replace("%data%","May 2014 - July 2014" ),
       "workLocation" : HTMLworkLocation.replace("%data%","Monterrey, Mexico" ),
-      //"workDescription" : HTMLworkDescription.replace("%data%","Frontend Developer" )
+      "workDescription" : HTMLworkDescription.replace("%data%","Frontend Developer" )
     },
     {
-      //"workEmployer" : HTMLworkEmployer.replace("%data%","Criser S.A de C.V." ),
-      "workEmployerandTitle" : HTMLworkEmployer.replace("%data%","Criser S.A de C.V." ) + HTMLworkTitle.replace("%data%","Technical support of information technology" ),
+      "workEmployer" : HTMLworkEmployer.replace("%data%","Criser S.A de C.V." ),
+      "workEmployerandTitle" : HTMLworkTitle.replace("%data%","Technical support of information technology" ),
       "workDates" : HTMLworkDates.replace("%data%","June 2013 - August 2013" ),
       "workLocation" : HTMLworkLocation.replace("%data%","Monterrey, Mexico" ),
-      //"workDescription" : HTMLworkDescription.replace("%data%","Frontend Developer" )
+      "workDescription" : HTMLworkDescription.replace("%data%","Frontend Developer" )
     }
   ]
 };
 
 var project = {
-  "projectStart" : HTMLprojectStart,
+  //"projectStart" : HTMLprojectStart,
   "projects" : [
     {
       "projectTitle" : HTMLprojectTitle.replace("%data%","Portafolio" ),
       "projectDates" : HTMLprojectDates.replace("%data%","December 2016" ),
-      "projectDescription" : HTMLprojectDescription.replace("%data%","Webpage, which shows my portafolio of projects" ),
+      "projectDescription" : HTMLprojectDescription.replace("%data%","Shows my portafolio of projects" ),
       "projectImage" : HTMLprojectImage.replace("%data%","./images/portafolio.png" )
     },
     {
       "projectTitle" : HTMLprojectTitle.replace("%data%","Cars" ),
       "projectDates" : HTMLprojectDates.replace("%data%","February 2016" ),
-      "projectDescription" : HTMLprojectDescription.replace("%data%","Webpage with a game" ),
+      "projectDescription" : HTMLprojectDescription.replace("%data%","Javascript Game" ),
       "projectImage" : HTMLprojectImage.replace("%data%","./images/cars.jpg" )
     },
     {
       "projectTitle" : HTMLprojectTitle.replace("%data%","Resume" ),
       "projectDates" : HTMLprojectDates.replace("%data%","February - Actual" ),
-      "projectDescription" : HTMLprojectDescription.replace("%data%","Webpage, which shows my Curriculum Vitae" ),
+      "projectDescription" : HTMLprojectDescription.replace("%data%","Shows my Curriculum Vitae" ),
       "projectImage" : HTMLprojectImage.replace("%data%","./images/curriculum.png" )
     },
     {
       "projectTitle" : HTMLprojectTitle.replace("%data%","Watson" ),
       "projectDates" : HTMLprojectDates.replace("%data%","January 2016" ),
       "projectDescription" : HTMLprojectDescription.replace("%data%","IBM Watson ALchemylanguage application" ),
-      "projectImage" : HTMLprojectImage.replace("%data%","./images/watson.png" )
+      "projectImage" : HTMLprojectImage.replace("%data%","./images/watson2.png" )
     }
   ]
 };
 
 var education = {
-  "schoolStart" : HTMLschoolStart,
+  //"schoolStart" : HTMLschoolStart,
   "schools" : [
     {
       "schoolName" : HTMLschoolName.replace("%data%","Udacity" ),
@@ -117,39 +120,45 @@ var education = {
   ]
 };
 
-$("#workExperience").append(work.workStart);
-$("#education").append(education.schoolStart);
-$("#projects").append(project.projectStart);
-//$("#topContacts").append(bio.each());
-var data = {
-  "programs": [
-      { "name":"zonealarm",
-        "price":"500" },
-      { "name":"kaspersky",
-        "price":"200" }
-    ]
-  };
+function displayWork(){
 
-$.each(work.works, function (job) {
-    $.each(work.works[job], function (key, val) {
-        //alert(key + val);
-        $(".work-entry").append(val);
-    });
-});
+  $.each(work.works, function (job) {
+      $.each(work.works[job], function (key, val) {
+          workHtml+= val;
+      });
+  });
+
+  $("#workExperience").append(workHtml);
+}
+displayWork();
+
 
 $.each(project.projects, function (index) {
+   projectHtml+= '<div class="col-xs-4">';
     $.each(project.projects[index], function (key, val) {
-        //alert(key + val);
-        $(".project-entry").append(val);
-        //$(".project-entry").prepend(val);
+        projectHtml+= val;
     });
+    projectHtml+='</div>';
 });
+
 $.each(education.schools, function (Institution) {
     $.each(education.schools[Institution], function (key, val) {
-        //alert(key + val);
-        $(".education-entry").append(val);
+        educationHtml+= val;
     });
 });
+
+$("#entry").prepend(projectHtml);
+
+$("#education").append(educationHtml);
+
+
+
+$(document).click(function(loc){
+  var x = loc.pageX;
+  var y = loc.pageY;
+
+  logClicks(x,y);
+})
 
 
 
