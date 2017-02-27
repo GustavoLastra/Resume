@@ -1,11 +1,17 @@
-/*
-This is empty on purpose! Your code to build the resume will go here.
- */
-
+// Varianles used to concatenate attributes of the objects
 var projectHtml = '';
 var workHtml = '';
 var educationHtml = '';
+var langageHtml = '';
 
+// Objects with the display function
+/*
+1. bio
+2. work
+3. project
+4. education
+5. language
+*/
 var bio = {
   "name" : HTMLheaderName.replace("%data%","Gustavo Lastra"),
   "role" : HTMLheaderRole.replace("%data%","Frontend Developer"),
@@ -26,7 +32,22 @@ var bio = {
     {
       "saving the universe": HTMLskills.replace("%data%","saving the universe")
     }
-  ]
+  ],
+  displayBio : function(){
+    $("#header").prepend(bio.role);
+    $("#header").prepend(bio.name);
+    for(index in bio.contacts){
+      $("#topContacts").append(bio.contacts[index]);
+    }
+    $("#header").append(bio.bioPic);
+    $("#header").append(bio.welcomeMsg);
+    $("#header").append(HTMLskillsStart);
+      $.each(bio.skills, function (index) {
+          $.each(bio.skills[index], function (key, val) {
+              $("#skills-h3").append(val);
+          });
+      });
+    }
 };
 
 var work = {
@@ -37,23 +58,38 @@ var work = {
       "workEmployerandTitle" : HTMLworkTitle.replace("%data%","Junior Front-End Developer E-Commerce" ),
       "workDates" : HTMLworkDates.replace("%data%","20 March - Actual" ),
       "workLocation" : HTMLworkLocation.replace("%data%","Jena, Germany" ),
-      "workDescription" : HTMLworkDescription.replace("%data%","Frontend Developer" )
+      "Descrption1" : HTMLworkDescription.replace("%data%","Application development and implementation, as well as technical reviews in post-launch phase for our custom software solutions based on the Salesforce Commerce Cloud platform." ),
+      "Descrption3" : HTMLworkDescription.replace("%data%","Proactive monitoring and improvement of existing solutions" )
     },
     {
       "workEmployer" : HTMLworkEmployer.replace("%data%","Criser S.A de C.V." ),
       "workEmployerandTitle" : HTMLworkTitle.replace("%data%","Technical support of information technology" ),
       "workDates" : HTMLworkDates.replace("%data%","May 2014 - July 2014" ),
       "workLocation" : HTMLworkLocation.replace("%data%","Monterrey, Mexico" ),
-      "workDescription" : HTMLworkDescription.replace("%data%","Frontend Developer" )
+      "workDescription" : HTMLworkDescription.replace("%data%","Planned and implemented the methodology “Lean Manufacturing” used in industrial processes."),
+      "Descrption1" : HTMLworkDescription.replace("%data%","Improved the efficiency of process execution in two departments." ),
+      "Descrption3" : HTMLworkDescription.replace("%data%","Proactive m 3.-Improved working quality of each worker involved in the project, considering their safety, productivity and ergonomic." )
     },
     {
       "workEmployer" : HTMLworkEmployer.replace("%data%","Criser S.A de C.V." ),
       "workEmployerandTitle" : HTMLworkTitle.replace("%data%","Technical support of information technology" ),
       "workDates" : HTMLworkDates.replace("%data%","June 2013 - August 2013" ),
       "workLocation" : HTMLworkLocation.replace("%data%","Monterrey, Mexico" ),
-      "workDescription" : HTMLworkDescription.replace("%data%","Frontend Developer" )
+      "workDescription" : HTMLworkDescription.replace("%data%","Gave attention and technical support to the employee of the company" ),
+      "Descrption1" : HTMLworkDescription.replace("%data%","Managed, installed and formatted the operative system and the working tools (Microsoft Office, Windows, Ubuntu)." ),
+      "Descrption3" : HTMLworkDescription.replace("%data%","Verified the legality of the used software of the company" )
     }
-  ]
+  ],
+
+  displayWork : function (){
+    $.each(work.works, function (job) {
+        $.each(work.works[job], function (key, val) {
+            workHtml+= val;
+        });
+        workHtml+="<br>";
+    });
+  }
+
 };
 
 var project = {
@@ -83,168 +119,132 @@ var project = {
       "projectDescription" : HTMLprojectDescription.replace("%data%","IBM Watson ALchemylanguage application" ),
       "projectImage" : HTMLprojectImage.replace("%data%","./images/watson2.png" )
     }
-  ]
+  ],
+  displayProject : function(){
+    $.each(project.projects, function (index) {
+       projectHtml+= '<div class="col-xs-4">';
+        $.each(project.projects[index], function (key, val) {
+            projectHtml+= val;
+        });
+        projectHtml+='</div>';
+    });
+  }
+
 };
 
 var education = {
   //"schoolStart" : HTMLschoolStart,
+  //"onlineClasses" : HTMLonlineClasses.replace("%data%","Frontend Developer" ),
   "schools" : [
     {
       "schoolName" : HTMLschoolName.replace("%data%","Udacity" ),
-      "schoolDegree" : HTMLschoolDegree.replace("%data%","Nanodegree-Program" ),
+      "schoolDegree" : HTMLschoolDegree.replace("%data%","Nanodegree-Program, Front-End Web Developement" ),
       "schoolDates" : HTMLschoolDates.replace("%data%","October 2016 - September 2018" ),
       "schoolLocation" : HTMLschoolLocation.replace("%data%","USA" ),
-      "schoolMajor" : HTMLschoolMajor.replace("%data%","Frontend Developer" )
+      //"schoolMajor" : HTMLschoolMajor.replace("%data%","Frontend Developer" )
     },
     {
       "schoolName" : HTMLschoolName.replace("%data%","Technische Universität Ilmenau" ),
-      "schoolDegree" : HTMLschoolDegree.replace("%data%","Master of science" ),
+      "schoolDegree" : HTMLschoolDegree.replace("%data%","Master's Degree, Media Tecnology" ),
       "schoolDates" : HTMLschoolDates.replace("%data%","November 2016 - November 2017" ),
       "schoolLocation" : HTMLschoolLocation.replace("%data%","Germany" ),
-      "schoolMajor" : HTMLschoolMajor.replace("%data%","Media Technology" )
+      //"schoolMajor" : HTMLschoolMajor.replace("%data%","Media Technology" )
     },
     {
       "schoolName" : HTMLschoolName.replace("%data%","Instituto Tecnológico y de Estudios Superiores de Monterrey" ),
-      "schoolDegree" : HTMLschoolDegree.replace("%data%","Bachelor of science" ),
+      "schoolDegree" : HTMLschoolDegree.replace("%data%","Bachelor's Degree, Electronic and Computer Engineering" ),
       "schoolDates" : HTMLschoolDates.replace("%data%","August 2010 - July 2015" ),
       "schoolLocation" : HTMLschoolLocation.replace("%data%","Mexico" ),
-      "schoolMajor" : HTMLschoolMajor.replace("%data%","Electronic and Computer Engineering" )
-    },
+      //"schoolMajor" : HTMLschoolMajor.replace("%data%","Electronic and Computer Engineering" )
+    }
+  ],
+  //
+  "onlineClasses" :[
     {
       "onlineClasses" : HTMLonlineClasses.replace("%data%","Frontend Developer" ),
-      "onlineTitle" : HTMLonlineTitle.replace("%data%","Frontend Developer" ),
-      "onlineSchool" : HTMLonlineSchool.replace("%data%","Frontend Developer" ),
-      "onlineDates" : HTMLonlineDates.replace("%data%","Frontend Developer" ),
-      "onlineURL" : HTMLonlineURL.replace("%data%","Frontend Developer" )
+      "onlineTitle" : HTMLonlineTitle.replace("%data%","HTML, CSS and JavaScript" ),
+      "onlineSchool" : HTMLonlineSchool.replace("%data%","Coursera" ),
+      "onlineDates" : HTMLonlineDates.replace("%data%","September 2016" ),
+      //"onlineURL" : HTMLonlineURL.replace("%data%","https://www.coursera.org/account/accomplishments/verify/VFNFP827ELM3" )
+    },
+    {
+      //"onlineClasses" : HTMLonlineClasses.replace("%data%","Frontend Developer" ),
+      "onlineTitle" : HTMLonlineTitle.replace("%data%","Java for Android" ),
+      "onlineSchool" : HTMLonlineSchool.replace("%data%","Coursera" ),
+      "onlineDates" : HTMLonlineDates.replace("%data%","Juny 2016" ),
+      //"onlineURL" : HTMLonlineURL.replace("%data%","https://www.coursera.org/account/accomplishments/verify/WEEERRKH9F85" )
+    },
+    {
+      //"onlineClasses" : HTMLonlineClasses.replace("%data%","Frontend Developer" ),
+      "onlineTitle" : HTMLonlineTitle.replace("%data%","Android App Components - Intents, Activities, and Broadcast Receivers" ),
+      "onlineSchool" : HTMLonlineSchool.replace("%data%","Coursera" ),
+      "onlineDates" : HTMLonlineDates.replace("%data%","October 2016" ),
+      //"onlineURL" : HTMLonlineURL.replace("%data%","https://www.coursera.org/account/accomplishments/verify/CPTGP2UCH9W6" )
     }
-  ]
+  ],
+  displaySchool : function(){
+    $.each(education.schools, function (Institution) {
+        $.each(education.schools[Institution], function (key, val) {
+            educationHtml+= val;
+        });
+    });
+    $.each(education.onlineClasses, function (Institution) {
+        $.each(education.onlineClasses[Institution], function (key, val) {
+            educationHtml+= val;
+        });
+    });
+  }
 };
 
-function displayWork(){
+var language = {
+  "languages" : [
+    {
+      "language" : HTMLlaguage.replace("%data%","English" ),
+      "Certification" : HTMLlanguageCertification.replace("%data%","Toefle IBT" ),
+      "level" : HTMLlanguageLevel.replace("%data%","Full professional proficiency (C1)" ),
+      "date" : HTMLlanguageDate.replace("%data%","June 2015" )
+    },
+    {
+      "language" : HTMLlaguage.replace("%data%","German" ),
+      "Certification" : HTMLlanguageCertification.replace("%data%","TestDaf" ),
+      "level" : HTMLlanguageLevel.replace("%data%","Full professional proficiency (C1)" ),
+      "date" : HTMLlanguageDate.replace("%data%","August 2016" )
+    },
+    {
+      "language" : HTMLlaguage.replace("%data%","Spanish" ),
+      //"Certification" : HTMLlanguageCertification.replace("%data%","Coursera" ),
+      "level" : HTMLlanguageLevel.replace("%data%","Native proficiency" ),
+      //"date" : HTMLlanguageDate.replace("%data%","Coursera" )
+    }
+  ],
 
-  $.each(work.works, function (job) {
-      $.each(work.works[job], function (key, val) {
-          workHtml+= val;
-      });
-  });
-
-  $("#workExperience").append(workHtml);
+  displayLanguage : function (){
+    $.each(language.languages, function (l) {
+        $.each(language.languages[l], function (key, val) {
+            langageHtml+= val;
+        });
+        langageHtml+="<br>";
+    });
+  }
 }
-displayWork();
 
+//Call to Display functions from objects
+work.displayWork();
+project.displayProject();
+language.displayLanguage();
+education.displaySchool();
+bio.displayBio();
 
-$.each(project.projects, function (index) {
-   projectHtml+= '<div class="col-xs-4">';
-    $.each(project.projects[index], function (key, val) {
-        projectHtml+= val;
-    });
-    projectHtml+='</div>';
-});
-
-$.each(education.schools, function (Institution) {
-    $.each(education.schools[Institution], function (key, val) {
-        educationHtml+= val;
-    });
-});
-
-$("#entry").prepend(projectHtml);
-
+$("#entry").append(projectHtml);
 $("#education").append(educationHtml);
-
-
+$("#workExperience").append(workHtml);
+$("#language").append(langageHtml);
 
 $(document).click(function(loc){
   var x = loc.pageX;
   var y = loc.pageY;
-
   logClicks(x,y);
 })
 
-
-
-
-
-/*for(job in work.works){
-  $("#workExperience").append(work.works[job].workEmployer);
-  $("#workExperience").append(work.works[job].workTitle);
-  $("#workExperience").append(work.works[job].workDates);
-  $("#workExperience").append(work.works[job].workLocation);
-}*/
-
-
-
-
-  /*$.each(bio.contacts, function (index) {
-      $.each(bio.contacts[index], function (key, val) {
-          //alert(key + val);
-          var fmobile =HTMLmobile.replace("%data%",bio.contacts.mobile);
-          var femail =HTMLemail.replace("%data%",bio.contacts.email);
-          var fgitlab =HTMLgitlab.replace("%data%",bio.contacts.gitlab);
-          var fgithub =HTMLgithub.replace("%data%",bio.contacts.github);
-          var flocation =HTMLlocation .replace("%data%",bio.contacts.location);
-          //var fblog =HTMLblog
-          $(".skills").append(val);
-      });
-  });*/
-  //var fName= HTMLheaderName.replace("%data%","Gustavo Antonio Lastra Colorado" );
-  //var fRole= HTMLheaderRole.replace("%data%","Frontend Developer" );
-  $("#header").prepend(bio.role);
-  $("#header").prepend(bio.name);
-  for(index in bio.contacts){
-    $("#topContacts").append(bio.contacts[index]);
-  }
-  $("#header").append(bio.bioPic);
-  $("#header").append(bio.welcomeMsg);
-
-$("#header").append(HTMLskillsStart);
-  $.each(bio.skills, function (index) {
-      $.each(bio.skills[index], function (key, val) {
-          //alert(key + val);
-          $("#skills-h3").append(val);
-          //$(".project-entry").prepend(val);
-      });
-  });
-  //for(index in bio.skills){
-  //  $("#skills").append(bio.skills[index]);
-  //}
-
-  /*if (bio.skills>0){
-    $("#header").append(HTMLskillsStart);
-    $.each(bio.skills, function (index) {
-        $.each(bio.skills[index], function (key, val) {
-            //alert(key + val);
-            $("#skills").append(val);
-        });
-    });
-  }*/
-
-
-
-
-
-  /*for ( index in bio.contacts) {
-    //$("#topContacts").append(flocation);
-  //console.log('obj.' + prop, '=', obj[prop]);
-    var fmobile =HTMLmobile.replace("%data%",bio.contacts.mobile);
-    $("#topContacts:last").append(fmobile);
-    var femail =HTMLemail.replace("%data%",bio.contacts.email);
-    $("#topContacts:last").append(femail);
-    var fgitlab =HTMLgitlab.replace("%data%",bio.contacts.gitlab);
-    $("#topContacts:last").append(fgitlab);
-    var fgithub =HTMLgithub.replace("%data%",bio.contacts.github);
-    $("#topContacts:last").append(fgithub);
-    var flocation =HTMLlocation .replace("%data%",bio.contacts.location);
-    $("#topContacts:last").append(flocation);
-    //var fblog =HTMLblog
-
-  }*/
-
-
-
-
-
- //internationalizeButton
- //googleMap
-
-  //$("#header").prepend(fName);
-  //$("#header").append(fRole);
+// append() to #mapDiv
+ $("#mapDiv").append(googleMap);

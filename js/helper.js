@@ -1,17 +1,3 @@
-/*
-
-This file contains all of the code running in the background that makes resumeBuilder.js possible. We call these helper functions because they support your code in this course.
-
-Don't worry, you'll learn what's going on in this file throughout the course. You won't need to make any changes to it until you start experimenting with inserting a Google Map in Problem Set 3.
-
-Cameron Pittman
-*/
-
-
-/*
-These are HTML strings. As part of the course, you'll be using JavaScript functions
-replace the %data% placeholder text you see in them.
-*/
 var HTMLheaderName = '<h1 id="name">%data%</h1>';
 var HTMLheaderRole = '<span style="color:#B2DFDB">%data%</span><hr>';
 
@@ -25,7 +11,6 @@ var HTMLlocation = '<li class="flex-item"><span class="orange-text">location</sp
 
 var HTMLbioPic = '<img src="%data%" class="biopic">';
 var HTMLwelcomeMsg = '<span class="welcome-message">%data%</span>';
-
 var HTMLskillsStart = '<h3 id="skills-h3">Skills at a Glance:</h3><ul id="topContacts" class="flex-column"></ul>';
 var HTMLskills = '<li class="flex-item"><span class="white-text">%data%</span></li>';
 
@@ -33,8 +18,9 @@ var HTMLworkStart = '<div class="work-entry"></div>';
 var HTMLworkEmployer = '<a href="#">%data%';
 var HTMLworkTitle = ' - %data%</a>';
 var HTMLworkDates = '<div class="date-text">%data%</div>';
-var HTMLworkLocation = '<div class="location-text">%data%</div>';
-var HTMLworkDescription = '<p><br>%data%</p>';
+var HTMLworkLocation = '<div class="location-text">%data%</div><br>';
+//var HTMLworkDescription = '<p><br>%data%</p>';
+var HTMLworkDescription = '<li class="flex-item"><span class="">%data%</span></li>';
 
 
 //var HTMLprojectStart = '<div class="project-entry"></div>';
@@ -45,17 +31,22 @@ var HTMLprojectDescription = '<p>%data%</p>';
 var HTMLprojectImage = '<img class="imgProject" src="%data%">';
 
 var HTMLschoolStart = '<div class="education-entry"></div>';
-var HTMLschoolName = '<a href="#">%data%';
-var HTMLschoolDegree = ' -- %data%</a>';
+var HTMLschoolName = '<a href="#">%data%</a>';
+var HTMLschoolDegree = '<div>%data%</div>';
 var HTMLschoolDates = '<div class="date-text">%data%</div>';
-var HTMLschoolLocation = '<div class="location-text">%data%</div>';
+var HTMLschoolLocation = '<div class="location-text">%data%</div><br>';
 var HTMLschoolMajor = '<em><br>Major: %data%</em>';
 
-var HTMLonlineClasses = '<h3>Online Classes</h3>';
+var HTMLonlineClasses = '<h4>Online Courses</h4>';
 var HTMLonlineTitle = '<a href="#">%data%';
 var HTMLonlineSchool = ' - %data%</a>';
-var HTMLonlineDates = '<div class="date-text">%data%</div>';
-var HTMLonlineURL = '<br><a href="#">%data%</a>';
+var HTMLonlineDates = '<div class="date-text">%data%</div><br>';
+var HTMLonlineURL = '<br><a href="#">%data%</a><br>';
+
+var HTMLlaguage = '<a href="#">%data%</a>';
+var HTMLlanguageLevel = '<div class="">%data%</div>';
+var HTMLlanguageCertification = '<div class="">%data%</div>';
+var HTMLlanguageDate = '<div class="date-text">%data%</div>';
 
 var internationalizeButton = '<button>Internationalize</button>';
 var googleMap = '<div id="map"></div>';
@@ -99,8 +90,6 @@ See the documentation below for more details.
 https://developers.google.com/maps/documentation/javascript/reference
 */
 var map;    // declares a global map variable
-
-
 /*
 Start here! initializeMap() is called when page is loaded.
 */
@@ -136,15 +125,15 @@ function initializeMap() {
     // as described in the Udacity FEND Style Guide:
     // https://udacity.github.io/frontend-nanodegree-styleguide/javascript.html#for-in-loop
     education.schools.forEach(function(school){
-      locations.push(school.location);
+      locations.push(school.schoolLocation);
     });
 
     // iterates through work locations and appends each location to
     // the locations array. Note that forEach is used for array iteration
     // as described in the Udacity FEND Style Guide:
     // https://udacity.github.io/frontend-nanodegree-styleguide/javascript.html#for-in-loop
-    work.jobs.forEach(function(job){
-      locations.push(job.location);
+    work.works.forEach(function(job){
+      locations.push(job.workLocation);
     });
 
     return locations;
@@ -240,12 +229,12 @@ function initializeMap() {
 Uncomment the code below when you're ready to implement a Google Map!
 */
 
-// Calls the initializeMap() function when the page loads
-//window.addEventListener('load', initializeMap);
+//Calls the initializeMap() function when the page loads
+window.addEventListener('load', initializeMap);
 
 // Vanilla JS way to listen for resizing of the window
 // and adjust map bounds
-//window.addEventListener('resize', function(e) {
+window.addEventListener('resize', function(e) {
   //Make sure the map bounds get updated on page resize
-//  map.fitBounds(mapBounds);
-//});
+  map.fitBounds(mapBounds);
+});

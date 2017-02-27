@@ -31,6 +31,7 @@ h6 {
   overflow: auto;
 }
 
+.language-entry,
 .education-entry,
 .work-entry,
 .project-entry {
@@ -53,10 +54,10 @@ h2 {
 }
 
 h3 {
-  font-style: italic;
+
   font-size: 20px;
   color: #B2DFDB;
-  line-height: 22px;
+  /*line-height: 22px;*/
 }
 
 h4 {
