@@ -1,3 +1,6 @@
+//Googlemap's apikey AIzaSyDhWWNW_45q9qMr8Ft8c4SmJVEB66pLCyQ
+
+
 // Varianles used to concatenate attributes of the objects
 var projectHtml = '';
 var workHtml = '';
@@ -54,7 +57,8 @@ var work = {
   //"workStart" : HTMLworkStart,
   "works" : [
     {
-      "workEmployer" : HTMLworkEmployer.replace("%data%","BE EXCELLENT" ),
+      "workEmployer" : HTMLworkEmployer.replace("%data%","BE EXCELLENT").replace("#", "http://www.bee.io"),
+      //"workEmployerLink" : HTMLworkEmployer.replace("#","http://www.bee.io" ),
       "workEmployerandTitle" : HTMLworkTitle.replace("%data%","Junior Front-End Developer E-Commerce" ),
       "workDates" : HTMLworkDates.replace("%data%","20 March - Actual" ),
       "workLocation" : HTMLworkLocation.replace("%data%","Jena, Germany" ),
@@ -62,7 +66,7 @@ var work = {
       "Descrption3" : HTMLworkDescription.replace("%data%","Proactive monitoring and improvement of existing solutions" )
     },
     {
-      "workEmployer" : HTMLworkEmployer.replace("%data%","Criser S.A de C.V." ),
+      "workEmployer" : HTMLworkEmployer.replace("%data%","Criser S.A de C.V." ).replace("#","http://www.criser.com.mx/index.php?lang=es"),
       "workEmployerandTitle" : HTMLworkTitle.replace("%data%","Technical support of information technology" ),
       "workDates" : HTMLworkDates.replace("%data%","May 2014 - July 2014" ),
       "workLocation" : HTMLworkLocation.replace("%data%","Monterrey, Mexico" ),
@@ -71,7 +75,7 @@ var work = {
       "Descrption3" : HTMLworkDescription.replace("%data%","Proactive m 3.-Improved working quality of each worker involved in the project, considering their safety, productivity and ergonomic." )
     },
     {
-      "workEmployer" : HTMLworkEmployer.replace("%data%","Criser S.A de C.V." ),
+      "workEmployer" : HTMLworkEmployer.replace("%data%","Criser S.A de C.V." ).replace("#","http://www.criser.com.mx/index.php?lang=es"),
       "workEmployerandTitle" : HTMLworkTitle.replace("%data%","Technical support of information technology" ),
       "workDates" : HTMLworkDates.replace("%data%","June 2013 - August 2013" ),
       "workLocation" : HTMLworkLocation.replace("%data%","Monterrey, Mexico" ),
@@ -137,21 +141,21 @@ var education = {
   //"onlineClasses" : HTMLonlineClasses.replace("%data%","Frontend Developer" ),
   "schools" : [
     {
-      "schoolName" : HTMLschoolName.replace("%data%","Udacity" ),
+      "schoolName" : HTMLschoolName.replace("%data%","Udacity").replace("#","https://www.udacity.com"),
       "schoolDegree" : HTMLschoolDegree.replace("%data%","Nanodegree-Program, Front-End Web Developement" ),
       "schoolDates" : HTMLschoolDates.replace("%data%","October 2016 - September 2018" ),
       "schoolLocation" : HTMLschoolLocation.replace("%data%","USA" ),
       //"schoolMajor" : HTMLschoolMajor.replace("%data%","Frontend Developer" )
     },
     {
-      "schoolName" : HTMLschoolName.replace("%data%","Technische Universität Ilmenau" ),
+      "schoolName" : HTMLschoolName.replace("%data%","Technische Universität Ilmenau").replace("#", "https://www.tu-ilmenau.de"),
       "schoolDegree" : HTMLschoolDegree.replace("%data%","Master's Degree, Media Tecnology" ),
       "schoolDates" : HTMLschoolDates.replace("%data%","November 2016 - November 2017" ),
       "schoolLocation" : HTMLschoolLocation.replace("%data%","Germany" ),
       //"schoolMajor" : HTMLschoolMajor.replace("%data%","Media Technology" )
     },
     {
-      "schoolName" : HTMLschoolName.replace("%data%","Instituto Tecnológico y de Estudios Superiores de Monterrey" ),
+      "schoolName" : HTMLschoolName.replace("%data%","Instituto Tecnológico y de Estudios Superiores de Monterrey" ).replace("#","https://tec.mx"),
       "schoolDegree" : HTMLschoolDegree.replace("%data%","Bachelor's Degree, Electronic and Computer Engineering" ),
       "schoolDates" : HTMLschoolDates.replace("%data%","August 2010 - July 2015" ),
       "schoolLocation" : HTMLschoolLocation.replace("%data%","Mexico" ),
@@ -162,24 +166,25 @@ var education = {
   "onlineClasses" :[
     {
       "onlineClasses" : HTMLonlineClasses.replace("%data%","Frontend Developer" ),
-      "onlineTitle" : HTMLonlineTitle.replace("%data%","HTML, CSS and JavaScript" ),
+      "onlineTitle" : HTMLonlineTitle.replace("%data%","HTML, CSS and JavaScript" ).replace("#","https://www.coursera.org"),
       "onlineSchool" : HTMLonlineSchool.replace("%data%","Coursera" ),
       "onlineDates" : HTMLonlineDates.replace("%data%","September 2016" ),
-      //"onlineURL" : HTMLonlineURL.replace("%data%","https://www.coursera.org/account/accomplishments/verify/VFNFP827ELM3" )
+      //"onlineURL": HTMLonlineURL.replace("#", ).replace("%data%", education.online[edu].url);
+      "onlineURL" : HTMLonlineURL.replace("%data%","License").replace("#","https://www.coursera.org/account/accomplishments/verify/VFNFP827ELM3"),
     },
     {
       //"onlineClasses" : HTMLonlineClasses.replace("%data%","Frontend Developer" ),
-      "onlineTitle" : HTMLonlineTitle.replace("%data%","Java for Android" ),
+      "onlineTitle" : HTMLonlineTitle.replace("%data%","Java for Android" ).replace("#","https://www.coursera.org"),
       "onlineSchool" : HTMLonlineSchool.replace("%data%","Coursera" ),
       "onlineDates" : HTMLonlineDates.replace("%data%","Juny 2016" ),
-      //"onlineURL" : HTMLonlineURL.replace("%data%","https://www.coursera.org/account/accomplishments/verify/WEEERRKH9F85" )
+      "onlineURL" : HTMLonlineURL.replace("%data%","License").replace("#","https://www.coursera.org/account/accomplishments/verify/WEEERRKH9F85" )
     },
     {
       //"onlineClasses" : HTMLonlineClasses.replace("%data%","Frontend Developer" ),
-      "onlineTitle" : HTMLonlineTitle.replace("%data%","Android App Components - Intents, Activities, and Broadcast Receivers" ),
+      "onlineTitle" : HTMLonlineTitle.replace("%data%","Android App Components: Intents, Activities, and Broadcast Receivers" ).replace("#","https://www.coursera.org"),
       "onlineSchool" : HTMLonlineSchool.replace("%data%","Coursera" ),
       "onlineDates" : HTMLonlineDates.replace("%data%","October 2016" ),
-      //"onlineURL" : HTMLonlineURL.replace("%data%","https://www.coursera.org/account/accomplishments/verify/CPTGP2UCH9W6" )
+      "onlineURL" : HTMLonlineURL.replace("%data%","License").replace("#","https://www.coursera.org/account/accomplishments/verify/CPTGP2UCH9W6" )
     }
   ],
   displaySchool : function(){

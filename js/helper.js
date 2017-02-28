@@ -7,7 +7,7 @@ var HTMLemail = '<li class="flex-item"><span class="orange-text">email</span><sp
 var HTMLgitlab = '<li class="flex-item"><span class="orange-text">gitlab</span><span class="white-text">%data%</span></li>';
 var HTMLgithub = '<li class="flex-item"><span class="orange-text">github</span><span class="white-text">%data%</span></li>';
 var HTMLblog = '<li class="flex-item"><span class="orange-text">blog</span><span class="white-text">%data%</span></li>';
-var HTMLlocation = '<li class="flex-item"><span class="orange-text">location</span><span class="white-text">%data%</span></li>';
+var HTMLlocation = '<li class="flex-item"><span class="orange-text">location</span><span class="white-text"> %data% </span></li>';
 
 var HTMLbioPic = '<img src="%data%" class="biopic">';
 var HTMLwelcomeMsg = '<span class="welcome-message">%data%</span>';
@@ -18,7 +18,7 @@ var HTMLworkStart = '<div class="work-entry"></div>';
 var HTMLworkEmployer = '<a href="#">%data%';
 var HTMLworkTitle = ' - %data%</a>';
 var HTMLworkDates = '<div class="date-text">%data%</div>';
-var HTMLworkLocation = '<div class="location-text">%data%</div><br>';
+var HTMLworkLocation = '<div class="location-text"> %data% </div><br>';
 //var HTMLworkDescription = '<p><br>%data%</p>';
 var HTMLworkDescription = '<li class="flex-item"><span class="">%data%</span></li>';
 
@@ -34,14 +34,14 @@ var HTMLschoolStart = '<div class="education-entry"></div>';
 var HTMLschoolName = '<a href="#">%data%</a>';
 var HTMLschoolDegree = '<div>%data%</div>';
 var HTMLschoolDates = '<div class="date-text">%data%</div>';
-var HTMLschoolLocation = '<div class="location-text">%data%</div><br>';
+var HTMLschoolLocation = '<div class="location-text"> %data% </div><br>';
 var HTMLschoolMajor = '<em><br>Major: %data%</em>';
 
 var HTMLonlineClasses = '<h4>Online Courses</h4>';
 var HTMLonlineTitle = '<a href="#">%data%';
 var HTMLonlineSchool = ' - %data%</a>';
-var HTMLonlineDates = '<div class="date-text">%data%</div><br>';
-var HTMLonlineURL = '<br><a href="#">%data%</a><br>';
+var HTMLonlineDates = '<div class="date-text">%data%</div>';
+var HTMLonlineURL = '<a href="#">%data%</a><br>';
 
 var HTMLlaguage = '<a href="#">%data%</a>';
 var HTMLlanguageLevel = '<div class="">%data%</div>';
@@ -117,15 +117,25 @@ function initializeMap() {
     // initializes an empty array
     var locations = [];
 
-    // adds the single location property from bio to the locations array
-    locations.push(bio.contacts.location);
 
+    // adds the single location property from bio to the locations array
+    var splitLocation = bio.contacts.location.split(" ");
+    locations.push(splitLocation[4]);
+    console.log(locations);
     // iterates through school locations and appends each location to
     // the locations array. Note that forEach is used for array iteration
     // as described in the Udacity FEND Style Guide:
     // https://udacity.github.io/frontend-nanodegree-styleguide/javascript.html#for-in-loop
     education.schools.forEach(function(school){
-      locations.push(school.schoolLocation);
+
+      splitLocation = school.schoolLocation.split(" ");
+      console.log("here school");
+      console.log(splitLocation);
+      locations.push(splitLocation[2]);
+
+      //locations.push(school.schoolLocation);
+
+      console.log(locations);
     });
 
     // iterates through work locations and appends each location to
@@ -133,10 +143,20 @@ function initializeMap() {
     // as described in the Udacity FEND Style Guide:
     // https://udacity.github.io/frontend-nanodegree-styleguide/javascript.html#for-in-loop
     work.works.forEach(function(job){
-      locations.push(job.workLocation);
+      console.log("here work");
+      splitLocation = job.workLocation.split(" ");
+      locations.push(splitLocation[2]);
+      console.log(locations);
     });
 
     return locations;
+  }
+
+  console.log("Helloooooooo");
+  console.log(locations);
+
+  for (loca in locations){
+    console.log(locations.loca);
   }
 
   /*
