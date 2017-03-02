@@ -92,6 +92,7 @@ var work = {
         });
         workHtml+="<br>";
     });
+    $("#workExperience").append(workHtml);
   }
 
 };
@@ -132,7 +133,9 @@ var project = {
         });
         projectHtml+='</div>';
     });
+    $("#entry").append(projectHtml);
   }
+
 
 };
 
@@ -198,7 +201,9 @@ var education = {
             educationHtml+= val;
         });
     });
+    $("#education").append(educationHtml);
   }
+
 };
 
 var language = {
@@ -230,6 +235,7 @@ var language = {
         });
         langageHtml+="<br>";
     });
+    $("#language").append(langageHtml);
   }
 }
 
@@ -239,17 +245,6 @@ project.displayProject();
 language.displayLanguage();
 education.displaySchool();
 bio.displayBio();
-
-$("#entry").append(projectHtml);
-$("#education").append(educationHtml);
-$("#workExperience").append(workHtml);
-$("#language").append(langageHtml);
-
-$(document).click(function(loc){
-  var x = loc.pageX;
-  var y = loc.pageY;
-  logClicks(x,y);
-})
 
 // append() to #mapDiv
  $("#mapDiv").append(googleMap);
