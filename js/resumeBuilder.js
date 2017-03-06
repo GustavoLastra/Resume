@@ -107,24 +107,28 @@ var project = {
   "projects" : [
     {
       "projectTitle" : "Portafolio",
+      "projectLink" : "https://github.com/GustavoLastra/Portafolio",
       "projectDates" : "December 2016",
       "projectDescription" : "Shows my portafolio of projects",
       "projectImage" : "./images/portafolio.png"
     },
     {
       "projectTitle" : "Cars",
+      "projectLink" : "https://github.com/GustavoLastra/Cars",
       "projectDates" : "February 2016",
       "projectDescription" : "Javascript Game",
       "projectImage" : "./images/cars.jpg"
     },
     {
       "projectTitle" : "Resume",
+      "projectLink" : "https://github.com/GustavoLastra/frontend-nanodegree-resume",
       "projectDates" : "February - Actual",
       "projectDescription" : "Shows my Curriculum Vitae",
       "projectImage" : "./images/curriculum.png"
     },
     {
       "projectTitle" : "Watson",
+      "projectLink" : "https://github.com/GustavoLastra/WatsonNode",
       "projectDates" : "January 2016",
       "projectDescription" : "IBM Watson ALchemylanguage application",
       "projectImage" : "./images/watson2.png"
@@ -132,7 +136,7 @@ var project = {
   ],
   displayProject : function(){
     for(index in project.projects){
-      var fProjectTitle = HTMLprojectTitle.replace("%data%", project.projects[index].projectTitle );
+      var fProjectTitle = HTMLprojectTitle.replace("%data%", project.projects[index].projectTitle).replace("#", project.projects[index].projectLink );
       var fProjectDates = HTMLprojectDates.replace("%data%",project.projects[index].projectDates );
       var fProjectDescription = HTMLprojectDescription.replace("%data%",project.projects[index].projectDescription );
       var fProjectImage = HTMLprojectImage.replace("%data%",project.projects[index].projectImage );
