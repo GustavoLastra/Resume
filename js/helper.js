@@ -117,25 +117,20 @@ function initializeMap() {
     // initializes an empty array
     var locations = [];
 
-
     // adds the single location property from bio to the locations array
-    var splitLocation = bio.contacts.location.split(" ");
-    locations.push(splitLocation[4]);
-    console.log(locations);
+    //var Location = .split(" ");
+    locations.push(bio.contacts.location);
+    console.log("Total locations: " + locations);
     // iterates through school locations and appends each location to
     // the locations array. Note that forEach is used for array iteration
     // as described in the Udacity FEND Style Guide:
     // https://udacity.github.io/frontend-nanodegree-styleguide/javascript.html#for-in-loop
     education.schools.forEach(function(school){
 
-      splitLocation = school.schoolLocation.split(" ");
-      console.log("here school");
-      console.log(splitLocation);
-      locations.push(splitLocation[2]);
-
-      //locations.push(school.schoolLocation);
-
-      console.log(locations);
+      //splitLocation = school.schoolLocation.split(" ");
+      //console.log("School locations: " + splitLocation);
+      locations.push(school.schoolLocation);
+      console.log("Total locations: " + locations);
     });
 
     // iterates through work locations and appends each location to
@@ -143,21 +138,14 @@ function initializeMap() {
     // as described in the Udacity FEND Style Guide:
     // https://udacity.github.io/frontend-nanodegree-styleguide/javascript.html#for-in-loop
     work.works.forEach(function(job){
-      console.log("here work");
-      splitLocation = job.workLocation.split(" ");
-      locations.push(splitLocation[2]);
-      console.log(locations);
+      //splitLocation = job.workLocation.split(" ");
+      locations.push(job.workLocation);
+      console.log( "Total locations: " + locations);
     });
 
     return locations;
   }
 
-  console.log("Helloooooooo");
-  console.log(locations);
-
-  for (loca in locations){
-    console.log(locations.loca);
-  }
 
   /*
   createMapMarker(placeData) reads Google Places search results to create map pins.
