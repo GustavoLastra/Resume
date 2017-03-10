@@ -8,6 +8,8 @@ var HTMLgitlab = '<li class="flex-item"><span class="orange-text">gitlab</span><
 var HTMLgithub = '<li class="flex-item"><span class="orange-text">github</span><span class="white-text">%data%</span></li>';
 var HTMLblog = '<li class="flex-item"><span class="orange-text">blog</span><span class="white-text">%data%</span></li>';
 var HTMLlocation = '<li class="flex-item"><span class="orange-text">location</span><span class="white-text"> %data% </span></li>';
+var HTMLfooterLink = '<a href="#" target="_top">';
+var HTMLfooterImage = '<img src="#" alt="logo" class="logo"></a>';
 
 var HTMLbioPic = '<img src="%data%" class="biopic">';
 var HTMLwelcomeMsg = '<span class="welcome-message">%data%</span>';
@@ -137,7 +139,7 @@ function initializeMap() {
     // the locations array. Note that forEach is used for array iteration
     // as described in the Udacity FEND Style Guide:
     // https://udacity.github.io/frontend-nanodegree-styleguide/javascript.html#for-in-loop
-    work.works.forEach(function(job){
+    work.jobs.forEach(function(job){
       //splitLocation = job.workLocation.split(" ");
       locations.push(job.workLocation);
       console.log( "Total locations: " + locations);
