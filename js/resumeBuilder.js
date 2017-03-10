@@ -9,6 +9,26 @@
 4. education
 5. language
 */
+var starWars = {
+    "creatures": [
+        {
+            "name": "bantha",
+            "face": "furry"
+        },
+        {
+            "name": "loth-cat",
+            "face": "toothy"
+        }
+    ]
+};
+starWars.creatures.forEach(function(creature){
+    console.log(creature.name);
+    console.log(creature.face)
+});
+
+
+
+
 var bio = {
   "name" : "Gustavo Lastra",
   "role" : "Frontend Developer",
@@ -45,13 +65,13 @@ var bio = {
     $("#header").append(fWelcomeMsg);
     $("#header").append(HTMLskillsStart);
 
-    for (index in fContacts) {
-      $("#topContacts").append(fContacts[index]);
-    }
+    fContacts.forEach(function(contact) {
+      $("#topContacts").append(contact);
+    });
 
-    for (index in fSkills) {
-      $("#skills-h3").append(fSkills[index]);
-    }
+    fSkills.forEach(function(skill) {
+      $("#skills-h3").append(skill);
+    });
   }
 };
 
@@ -96,9 +116,10 @@ var work = {
       var fWorkDescriptionOne = HTMLworkDescription.replace("%data%",work.works[index].workDescriptionOne);
       var fWorkDescriptionTwo = HTMLworkDescription.replace("%data%",work.works[index].workDescriptionTwo);
       var fWorks = [fEmplyerAndLink + fWorkTitle,fWorkDates,fWorkLocation,fWorkDescriptionOne, fWorkDescriptionTwo, "<br>"];
-      for (index in fWorks){
-        $("#workExperience").append(fWorks[index]);
-      }
+
+      fWorks.forEach(function(work) {
+        $("#workExperience").append(work);
+      });
     }
   }
 };
@@ -135,14 +156,15 @@ var project = {
     }
   ],
   displayProject : function(){
-    for(index in project.projects){
-      var fProjectTitle = HTMLprojectTitle.replace("%data%", project.projects[index].projectTitle).replace("#", project.projects[index].projectLink );
-      var fProjectDates = HTMLprojectDates.replace("%data%",project.projects[index].projectDates );
-      var fProjectDescription = HTMLprojectDescription.replace("%data%",project.projects[index].projectDescription );
-      var fProjectImage = HTMLprojectImage.replace("%data%",project.projects[index].projectImage );
+
+    project.projects.forEach(function(project) {
+      var fProjectTitle = HTMLprojectTitle.replace("%data%", project.projectTitle).replace("#", project.projectLink );
+      var fProjectDates = HTMLprojectDates.replace("%data%",project.projectDates );
+      var fProjectDescription = HTMLprojectDescription.replace("%data%",project.projectDescription );
+      var fProjectImage = HTMLprojectImage.replace("%data%",project.projectImage );
       var fProjects = '<div class="col-xs-4">' + fProjectTitle + fProjectDates + fProjectDescription + fProjectImage + '</div>';
-        $("#entry").append(fProjects);
-    }
+      $("#entry").append(fProjects);
+    });
   }
 
 
@@ -199,24 +221,26 @@ var education = {
     }
   ],
   displaySchool : function(){
-    for (index in education.schools) {
-      var fSchoolNameLink = HTMLschoolName.replace("%data%",education.schools[index].schoolName).replace("#",education.schools[index].schoolLink);
-      var fSchoolDegree = HTMLschoolDegree.replace("%data%",education.schools[index].schoolDegree );
-      var fSchoolDates = HTMLschoolDates.replace("%data%",education.schools[index].schoolDates );
-      var fSchoolLocation = HTMLschoolLocation.replace("%data%",education.schools[index].schoolLocation );
+
+    education.schools.forEach(function(school) {
+      var fSchoolNameLink = HTMLschoolName.replace("%data%",school.schoolName).replace("#",education.schools[index].schoolLink);
+      var fSchoolDegree = HTMLschoolDegree.replace("%data%",school.schoolDegree );
+      var fSchoolDates = HTMLschoolDates.replace("%data%",school.schoolDates );
+      var fSchoolLocation = HTMLschoolLocation.replace("%data%",school.schoolLocation );
       var fSchools = fSchoolNameLink + fSchoolDegree + fSchoolDates + fSchoolLocation;
       $("#education").append(fSchools);
-    }
+    });
 
     $("#education").append(HTMLonlineClasses);
-    for (index in education.onlineClasses) {
-      var fOnlineTitleLink = HTMLonlineTitle.replace("%data%", education.onlineClasses[index].onlineTitle ).replace("#", education.onlineClasses[index].schoolLink);
-      var fOnlineSchool = HTMLonlineSchool.replace("%data%", education.onlineClasses[index].onlineSchool );
-      var fOnlineDates = HTMLonlineDates.replace("%data%", education.onlineClasses[index].onlineDates );
-      var fOnlineURL = HTMLonlineURL.replace("%data%", education.onlineClasses[index].onlineURL).replace("#", education.onlineClasses[index].onlineURLLink);
+
+    education.onlineClasses.forEach(function(online) {
+      var fOnlineTitleLink = HTMLonlineTitle.replace("%data%", online.onlineTitle ).replace("#", online.schoolLink);
+      var fOnlineSchool = HTMLonlineSchool.replace("%data%", online.onlineSchool );
+      var fOnlineDates = HTMLonlineDates.replace("%data%", online.onlineDates );
+      var fOnlineURL = HTMLonlineURL.replace("%data%", online.onlineURL).replace("#", online.onlineURLLink);
       var fOnlineSchools = fOnlineTitleLink + fOnlineSchool + fOnlineDates + fOnlineURL;
       $("#education").append(fOnlineSchools);
-    }
+    })
   }
 };
 
@@ -243,14 +267,15 @@ var language = {
   ],
 
   displayLanguage : function (){
-    for (index in language.languages) {
-      var fLanguage = HTMLlaguage.replace("%data%", language.languages[index].language);
-      var fLanguageCertification = HTMLlanguageCertification.replace("%data%", language.languages[index].Certification);
-      var fLanguageLevel = HTMLlanguageLevel.replace("%data%", language.languages[index].level);
-      var fLanguageDate = HTMLlanguageDate.replace("%data%", language.languages[index].date);
+
+    language.languages.forEach(function(language) {
+      var fLanguage = HTMLlaguage.replace("%data%", language.language);
+      var fLanguageCertification = HTMLlanguageCertification.replace("%data%", language.Certification);
+      var fLanguageLevel = HTMLlanguageLevel.replace("%data%", language.level);
+      var fLanguageDate = HTMLlanguageDate.replace("%data%", language.date);
       var fLanguages = fLanguage + fLanguageCertification + fLanguageLevel + fLanguageDate + "<br>";
       $("#language").append(fLanguages);
-    }
+    });
   }
 }
 
