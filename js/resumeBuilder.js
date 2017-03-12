@@ -86,29 +86,6 @@ var bio = {
       var fFooter = div+ fFooterLink + fFooterImage + enddiv;
       $("#Connect").append(fFooter);
     });
-
-
-    /*<div class="col-xs-1">
-        <a href="#" target="_top">
-          <img src="images/google.png" alt="HTML tutorial" class="logo">
-        </a>
-    </div>
-    <div class="col-xs-1">
-      <a href="#">
-        <img src="images/Linkedin.png" alt="HTML tutorial" class="logo">
-      </a>
-    </div>
-    <div class="col-xs-1">
-      <a href="https://github.com/GustavoLastra">
-        <img src="images/GitHub.png" alt="Github" class="logo">
-      </a>
-    </div>
-    <div class="col-xs-1">
-      <a href="https://sse-lehre.theoinf.tu-ilmenau.de/dashboard/projects">
-        <img src="images/gitlab.png" alt="Gitlab" class="logo">
-      </a>
-    </div>*/
-
   }
 };
 
@@ -120,7 +97,7 @@ var work = {
       "title" : "Junior Front-End Developer E-Commerce",
       "dates" : "20 March - Actual",
       "location" : "Jena, Germany",
-      "description" : "Application development and implementation, as well as technical reviews in post-launch phase for our custom software solutions based on the Salesforce Commerce Cloud platform.",
+      "description" : "Application, development and implementation, as well as technical reviews in post-launch phase for our custom software solutions based on the Salesforce Commerce Cloud platform.",
       //"workDescriptionTwo" : "Proactive monitoring and improvement of existing solutions"
     },
     {
@@ -168,28 +145,36 @@ var projects = {
       "link" : "https://github.com/GustavoLastra/Portafolio",
       "date" : "December 2016",
       "description" : "Shows my portafolio of projects",
-      "images" : "./images/portafolio.png"
+      "images" : [
+        "./images/portafolio.png"
+      ]
     },
     {
       "title" : "Cars",
       "link" : "https://github.com/GustavoLastra/Cars",
       "date" : "February 2016",
       "description" : "Javascript Game",
-      "images" : "./images/cars.jpg"
+      "images" : [
+        "./images/cars.jpg"
+      ]
     },
     {
       "title" : "Resume",
       "link" : "https://github.com/GustavoLastra/frontend-nanodegree-resume",
       "date" : "February - Actual",
       "description" : "Shows my Curriculum Vitae",
-      "images" : "./images/curriculum.png"
+      "images" : [
+        "./images/curriculum.png"
+      ]
     },
     {
       "title" : "Watson",
       "link" : "https://github.com/GustavoLastra/WatsonNode",
       "date" : "January 2016",
       "description" : "IBM Watson ALchemylanguage application",
-      "images" : "./images/watson2.png"
+      "images" : [
+        "./images/watson2.png"
+      ]
     }
   ],
   display : function(){
@@ -198,7 +183,7 @@ var projects = {
       var fProjectTitle = HTMLprojectTitle.replace("%data%", project.title).replace("#", project.link );
       var fProjectDates = HTMLprojectDates.replace("%data%",project.date );
       var fProjectDescription = HTMLprojectDescription.replace("%data%",project.description );
-      var fProjectImage = HTMLprojectImage.replace("%data%",project.images );
+      var fProjectImage = HTMLprojectImage.replace("%data%",project.images[0] );
       var fProjects = '<div class="col-xs-4">' + fProjectTitle + fProjectDates + fProjectDescription + fProjectImage + '</div>';
       $("#entry").append(fProjects);
     });
@@ -213,6 +198,9 @@ var education = {
       "name" : "Udacity",
       "link" : "https://www.udacity.com",
       "degree" : "Nanodegree-Program, Front-End Web Developement",
+      "majors": [
+        "Front-End"
+      ],
       "dates" : "October 2016 - September 2018",
       "location" : "USA"
     },
@@ -220,6 +208,9 @@ var education = {
       "name" : "Technische Universität Ilmenau",
       "link" : "https://www.tu-ilmenau.de",
       "degree" : "Master's Degree, Media Tecnology",
+      "majors": [
+        "Software engineering"
+      ],
       "dates" : "November 2016 - November 2017",
       "location" : "Germany"
     },
@@ -227,11 +218,14 @@ var education = {
       "name" : "Instituto Tecnológico y de Estudios Superiores de Monterrey",
       "link" : "https://tec.mx",
       "degree" : "Bachelor's Degree, Electronic and Computer Engineering",
+      "majors": [
+        "Software engineering"
+      ],
       "dates" : "August 2010 - July 2015",
       "location" : "Mexico",
     }
   ],
-  "onlineClasses" :[
+  "onlineCourses" :[
     {
       "title" : "HTML, CSS and JavaScript",
       "link" : "https://www.coursera.org",
@@ -262,15 +256,16 @@ var education = {
     education.schools.forEach(function(school) {
       var fSchoolNameLink = HTMLschoolName.replace("%data%",school.name).replace("#",education.link);
       var fSchoolDegree = HTMLschoolDegree.replace("%data%",school.degree );
+      var fSchoolMajor = HTMLschoolDegree.replace("%data%",school.majors[0]);
       var fSchoolDates = HTMLschoolDates.replace("%data%",school.dates );
       var fSchoolLocation = HTMLschoolLocation.replace("%data%",school.location );
-      var fSchools = fSchoolNameLink + fSchoolDegree + fSchoolDates + fSchoolLocation;
+      var fSchools = fSchoolNameLink + fSchoolDegree + fSchoolMajor + fSchoolDates + fSchoolLocation;
       $("#education").append(fSchools);
     });
 
     $("#education").append(HTMLonlineClasses);
 
-    education.onlineClasses.forEach(function(online) {
+    education.onlineCourses.forEach(function(online) {
       var fOnlineTitleLink = HTMLonlineTitle.replace("%data%", online.title ).replace("#", online.link);
       var fOnlineSchool = HTMLonlineSchool.replace("%data%", online.school );
       var fOnlineDates = HTMLonlineDates.replace("%data%", online.dates );
