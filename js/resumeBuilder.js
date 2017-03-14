@@ -142,8 +142,8 @@ var projects = {
   "projects" : [
     {
       "title" : "Portafolio",
-      "link" : "https://github.com/GustavoLastra/Portafolio",
-      "date" : "December 2016",
+      "url" : "https://github.com/GustavoLastra/Portafolio",
+      "dates" : "December 2016",
       "description" : "Shows my portafolio of projects",
       "images" : [
         "./images/portafolio.png"
@@ -151,8 +151,8 @@ var projects = {
     },
     {
       "title" : "Cars",
-      "link" : "https://github.com/GustavoLastra/Cars",
-      "date" : "February 2016",
+      "url" : "https://github.com/GustavoLastra/Cars",
+      "dates" : "February 2016",
       "description" : "Javascript Game",
       "images" : [
         "./images/cars.jpg"
@@ -160,8 +160,8 @@ var projects = {
     },
     {
       "title" : "Resume",
-      "link" : "https://github.com/GustavoLastra/frontend-nanodegree-resume",
-      "date" : "February - Actual",
+      "url" : "https://github.com/GustavoLastra/frontend-nanodegree-resume",
+      "dates" : "February - Actual",
       "description" : "Shows my Curriculum Vitae",
       "images" : [
         "./images/curriculum.png"
@@ -169,8 +169,8 @@ var projects = {
     },
     {
       "title" : "Watson",
-      "link" : "https://github.com/GustavoLastra/WatsonNode",
-      "date" : "January 2016",
+      "url" : "https://github.com/GustavoLastra/WatsonNode",
+      "dates" : "January 2016",
       "description" : "IBM Watson ALchemylanguage application",
       "images" : [
         "./images/watson2.png"
@@ -180,10 +180,14 @@ var projects = {
   display : function(){
 
     projects.projects.forEach(function(project) {
-      var fProjectTitle = HTMLprojectTitle.replace("%data%", project.title).replace("#", project.link );
-      var fProjectDates = HTMLprojectDates.replace("%data%",project.date );
+      var fProjectTitle = HTMLprojectTitle.replace("%data%", project.title).replace("#", project.url );
+      var fProjectDates = HTMLprojectDates.replace("%data%",project.dates );
       var fProjectDescription = HTMLprojectDescription.replace("%data%",project.description );
-      var fProjectImage = HTMLprojectImage.replace("%data%",project.images[0] );
+      var fProjectImage;
+      project.images.forEach(function(image){
+      fProjectImage = HTMLprojectImage.replace("%data%",image);
+      // display formatted image
+      });
       var fProjects = '<div class="col-xs-4">' + fProjectTitle + fProjectDates + fProjectDescription + fProjectImage + '</div>';
       $("#entry").append(fProjects);
     });
@@ -256,10 +260,12 @@ var education = {
     education.schools.forEach(function(school) {
       var fSchoolNameLink = HTMLschoolName.replace("%data%",school.name).replace("#",education.link);
       var fSchoolDegree = HTMLschoolDegree.replace("%data%",school.degree );
-      var fSchoolMajor = HTMLschoolDegree.replace("%data%",school.majors[0]);
+      var fSchoolMajor = HTMLschoolMajor.replace("%data%",school.majors[0]);
       var fSchoolDates = HTMLschoolDates.replace("%data%",school.dates );
       var fSchoolLocation = HTMLschoolLocation.replace("%data%",school.location );
       var fSchools = fSchoolNameLink + fSchoolDegree + fSchoolMajor + fSchoolDates + fSchoolLocation;
+      //$("#education").append(HTMLschoolStart);
+      //$(".education-entry").append(fSchools);
       $("#education").append(fSchools);
     });
 
@@ -271,8 +277,10 @@ var education = {
       var fOnlineDates = HTMLonlineDates.replace("%data%", online.dates );
       var fOnlineURL = HTMLonlineURL.replace("%data%", online.license).replace("#", online.url);
       var fOnlineSchools = fOnlineTitleLink + fOnlineSchool + fOnlineDates + fOnlineURL;
+      //$("#education").append(HTMLschoolStart);
+      //$(".education-entry").append(fOnlineSchools);
       $("#education").append(fOnlineSchools);
-    })
+    });
   }
 };
 

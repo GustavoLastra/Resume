@@ -37,7 +37,7 @@ var HTMLschoolName = '<a href="#">%data%</a>';
 var HTMLschoolDegree = '<div>%data%</div>';
 var HTMLschoolDates = '<div class="date-text">%data%</div>';
 var HTMLschoolLocation = '<div class="location-text"> %data% </div><br>';
-var HTMLschoolMajor = '<em><br>Major: %data%</em>';
+var HTMLschoolMajor = '<em> Major: %data%</em>';
 
 var HTMLonlineClasses = '<h4>Online Courses</h4>';
 var HTMLonlineTitle = '<a href="#">%data%';
@@ -131,7 +131,7 @@ function initializeMap() {
 
       //splitLocation = school.schoolLocation.split(" ");
       //console.log("School locations: " + splitLocation);
-      locations.push(school.schoolLocation);
+      locations.push(school.location);
       console.log("Total locations: " + locations);
     });
 
@@ -141,7 +141,7 @@ function initializeMap() {
     // https://udacity.github.io/frontend-nanodegree-styleguide/javascript.html#for-in-loop
     work.jobs.forEach(function(job){
       //splitLocation = job.workLocation.split(" ");
-      locations.push(job.workLocation);
+      locations.push(job.location);
       console.log( "Total locations: " + locations);
     });
 
