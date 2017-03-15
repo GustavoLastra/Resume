@@ -32,7 +32,7 @@ var bio = {
     },
     {
       "link" : "https://github.com/GustavoLastra",
-      "image" : "images/GitHub.png"
+      "image" : "images/Github.png"
     },
     {
       "link" : "https://sse-lehre.theoinf.tu-ilmenau.de/dashboard/projects",
