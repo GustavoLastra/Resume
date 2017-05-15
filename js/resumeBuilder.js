@@ -39,7 +39,7 @@ var bio = {
       "image" : "images/gitlab.png"
     }
   ],
-  "biopic" : "./images/gus.jpg",
+  "biopic" : "./images/Gustavo.png",
   "welcomeMessage" : "Welcome to my resume",
   "skills" : ["rocking","saving the universe"],
 
