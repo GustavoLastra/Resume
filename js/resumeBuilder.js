@@ -41,7 +41,7 @@ var bio = {
   ],
   "biopic" : "./images/Gustavo.png",
   "welcomeMessage" : "Welcome to my resume",
-  "skills" : ["rocking","saving the universe"],
+  "skills" : ["Hard-working","Attention to Details"],
 
   display : function() {
     var fHeaderName = HTMLheaderName.replace("%data%", bio.name);
